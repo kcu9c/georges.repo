@@ -72,9 +72,18 @@ then
 	git clone "https://github.com/BytingBucs/$repo" 
 	explorer $localRepoRoot
 else
-	echo "Pulling the repo of $userID, called $repo, to ensure you have the newest copy."
-	cd "$localRepoRoot"
-	cd "$repo"
-	git pull
-	explorer $localRepoRoot
+	if [ $1 = "upload" ]
+	then
+		cd "$localRepoRoot"
+		git commit -a -m "saved work"
+		git push
+	else
+		echo "Pulling the repo of $userID, called $repo, to ensure you have the newest copy."
+		cd "$localRepoRoot"
+		cd "$repo"
+		git pull
+		echo "You can type the following to save your work when done.
+		echo "sh setup_git.sh upload"
+		explorer $localRepoRoot
+	fi
 fi
