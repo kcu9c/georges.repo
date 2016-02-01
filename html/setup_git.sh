@@ -82,7 +82,7 @@ else
 		cd "$localRepoRoot"
 		cd "$repo"
 		git pull
-		echo "You can type the following to save your work when done.
+		echo "You can type the following to save your work when done."
 		echo "sh setup_git.sh upload"
 		explorer $localRepoRoot
 	fi
