@@ -74,7 +74,7 @@ then
 else
 	if [ $1 = "upload" ]
 	then
-		cd "$localRepoRoot"
+		cd "$localRepoRoot\\$repo"
 		git commit -a -m "saved work"
 		git push
 	else
