@@ -72,7 +72,7 @@ then
 	git clone "https://github.com/BytingBucs/$repo" 
 	explorer $localRepoRoot
 else
-	if [ $1 = "upload" ]
+	if [ $1 == "upload" ]
 	then
 		cd "$localRepoRoot\\$repo"
 		git add *
