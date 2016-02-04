@@ -1,5 +1,6 @@
 #!/bin/sh
-export localRepoRoot="$USERPROFILE\\My Documents\\Git Projects\\BytingBucs"
+#export localRepoRoot="$USERPROFILE\\My Documents\\Git Projects\\BytingBucs"
+export localRepoRoot="/home"
 export userID=$1
 export repo=$2
 firstRun=1;
@@ -74,10 +75,10 @@ then
 else
 	if [ $1 == "upload" ]
 	then
-		cd "$localRepoRoot\\$repo"
+		cd "$localRepoRoot/$repo"
 		git add *
-		git add *\\*
-		git add *\\*\\*
+		git add */*
+		git add */*/*
 		# deep than three folders in? Fuck 'em, they should have learned git
 		git commit -a -m "saved work"
 		git push
