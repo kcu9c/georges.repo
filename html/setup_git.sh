@@ -76,6 +76,9 @@ else
 	then
 		cd "$localRepoRoot\\$repo"
 		git add *
+		git add *\\*
+		git add *\\*\\*
+		# deep than three folders in? Fuck 'em, they should have learned git
 		git commit -a -m "saved work"
 		git push
 	else
@@ -88,3 +91,5 @@ else
 		explorer $localRepoRoot
 	fi
 fi
+echo "Any point at which a window pops up or a prompt shows with this window, asking for a username, it is being requested from the git-bash.exe executable and not from this script."
+
