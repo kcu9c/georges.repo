@@ -1,5 +1,4 @@
 #!/bin/sh
-#export localRepoRoot="$USERPROFILE\\My Documents\\Git Projects\\BytingBucs"
 export localRepoRoot="/home"
 export userID=$1
 export repo=$2
@@ -71,8 +70,6 @@ then
 	echo "repo=$repo" >> ".gitscript.config"
 	cd "$localRepoRoot"
 	git clone "https://github.com/BytingBucs/$repo" 
-	explorer home
-	#explorer $localRepoRoot
 else
 	if [ $1 == "upload" ]
 	then
@@ -90,8 +87,6 @@ else
 		git pull
 		echo "You can type the following to save your work when done."
 		echo "sh setup_git.sh upload"
-		explorer home
-		#explorer $localRepoRoot
 	fi
 fi
 echo "Any point at which a window pops up or a prompt shows with this window, asking for a username, it is being requested from the git-bash.exe executable and not from this script."
