@@ -71,6 +71,7 @@ then
 	echo "repo=$repo" >> ".gitscript.config"
 	cd "$localRepoRoot"
 	git clone "https://github.com/BytingBucs/$repo" 
+	explorer home
 	#explorer $localRepoRoot
 else
 	if [ $1 == "upload" ]
@@ -89,6 +90,7 @@ else
 		git pull
 		echo "You can type the following to save your work when done."
 		echo "sh setup_git.sh upload"
+		explorer home
 		#explorer $localRepoRoot
 	fi
 fi
