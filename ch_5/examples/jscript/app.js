@@ -14,7 +14,12 @@ var main = function () {
             // copy from hand to list
        	    var $card = $("<li>");
             $card.text(card.rank + " of " + card.suit);
-            $list.append($card);
+            // new functionality, check for a specified card
+	    if ( card.rank  === 'ace' ) {
+		// do nothing, we throwing aces out!
+	    } else {
+	    	$list.append($card);
+	    }
         });
         // put list array to main
 	$("main").append($list);
