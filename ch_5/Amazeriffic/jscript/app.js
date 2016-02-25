@@ -1,15 +1,14 @@
 var main = function (toDoObjects) {
     "use strict";
     var toDos = toDoObjects.map(function (toDo) {
-          // we'll just return the description
-          // of this toDoObject
+          // return field in this toDoObject
           return toDo.description;
     });
     $(".tabs a span").toArray().forEach(function (element) {
         var $element = $(element);
-        // create a click handler for this element
         $element.on("click", function () {
-            var $content,
+            // handler stub for click event
+	    var $content,
                 $input,
                 $button,
                 i;
@@ -28,7 +27,6 @@ var main = function (toDoObjects) {
                 });
             } else if ($element.parent().is(":nth-child(3)")) {
                 var tags = [];
-
                 toDoObjects.forEach(function (toDo) {
                     toDo.tags.forEach(function (tag) {
                         if (tags.indexOf(tag) === -1) {
@@ -36,6 +34,7 @@ var main = function (toDoObjects) {
                         }
                     });
                 });
+		// print tags to console
                 console.log(tags);
                 var tagObjects = tags.map(function (tag) {
                     var toDosWithTag = [];
@@ -52,7 +51,7 @@ var main = function (toDoObjects) {
                     tag.toDos.forEach(function (description) {
                         var $li = $("<li>").text(description);
                         $content.append($li);
-                    });
+                    });// add to main
                     $("main .content").append($tagName);
                     $("main .content").append($content);
                 });
@@ -66,7 +65,7 @@ var main = function (toDoObjects) {
                     var description = $input.val(),
                         tags = $tagInput.val().split(",");
                     toDoObjects.push({"description":description, "tags":tags});
-                    // update toDos
+                    // save to object 
                     toDos = toDoObjects.map(function (toDo) {
                         return toDo.description;
                     });
@@ -78,13 +77,13 @@ var main = function (toDoObjects) {
                                      .append($tagLabel)
                                      .append($tagInput)
                                      .append($button);
-            }
+            }// display results
             $("main .content").append($content);
             return false;
-        });
+        });// event handler completed
     });
     $(".tabs a:first-child span").trigger("click");
-};
+}; // parse json
 $(document).ready(function () {
     $.getJSON("todos.json", function (toDoObjects) {
         main(toDoObjects);
